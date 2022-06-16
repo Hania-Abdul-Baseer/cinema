@@ -32,7 +32,8 @@ function getSeats() {
     app.movie_cover = app.movie+'.png';
 
     // display the date and time chosen by the user
-    app.movie_date = document.getElementById("start");
+    //app.movie_date = new Date(document.getElementById("start").value);
+    app.movie_date = document.getElementById("start").value;
 
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
