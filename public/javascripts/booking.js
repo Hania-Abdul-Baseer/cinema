@@ -35,9 +35,16 @@ function getSeats() {
     //app.movie_date = new Date(document.getElementById("start").value);
     app.movie_date = document.getElementById("start").value;
 
+    // object that will be sent with the GET request
+    let details = {
+        movie_name: app.movie
+        //movie_time: app.movie_date
+    };
+
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+
             var options_li = JSON.parse(this.responseText);
             for(let i = 0; i < options_li.length; i++){
                 var row = document.createElement('tr');
@@ -62,7 +69,7 @@ function getSeats() {
     xmlhttp.open("GET", "/seats", true);
 
     // Send request
-    xmlhttp.send();
+    xmlhttp.send(JSON.stringify(details));
 }
 
 /*

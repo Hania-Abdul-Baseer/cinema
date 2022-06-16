@@ -17,9 +17,12 @@ router.get('/seats', function(req, res, next) {
       return;
     }
 
-
-    let query = "SELECT shoe_name, price FROM shoes;";
-    connection.query(query, function(error, rows, fields){
+    let query = `SELECT rooms.room_number, seats.seat_number
+                  FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
+                  INNER JOIN screenings ON screenings.room = rooms.room_id
+                  INNER JOIN movies ON movies.movie_id = screenings.movie
+                  WHERE movies.movie_name = '?'`;
+    connection.query(query,[req.body.movie_name], function(error, rows, fields){
       connection.release(); // release connection
       if(error){
         console.log("error line 25 - index.js");
