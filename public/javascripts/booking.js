@@ -35,10 +35,9 @@ function getSeats() {
     //app.movie_date = new Date(document.getElementById("start").value);
     app.movie_date = document.getElementById("start").value;
 
-    // object that will be sent with the GET request
     let details = {
-        movie_name: app.movie
-        //movie_time: app.movie_date
+        movie_name: app.movie,
+        movie_date: ''
     };
 
     // Define function to run on response
@@ -64,9 +63,9 @@ function getSeats() {
             }
         }
     };
-
     // Open connection to server
-    xmlhttp.open("GET", "/seats", true);
+    xmlhttp.open("POST", "/seats", true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
 
     // Send request
     xmlhttp.send(JSON.stringify(details));
