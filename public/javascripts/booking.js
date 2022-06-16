@@ -1,25 +1,35 @@
 var app = new Vue({
     el: '#vue',
     data: {
-        show_search: true,
-        show_search_results: false,
-        item: 'shoes',
-        chosen_price: 50
+        show_filter: true,
+        show_seats: false,
+        movie: '',
+        date: '2022-06-20 06:35:18',
+        movie_cover: 'wdc.png',
     }
 });
 
-function showPrice(){
-    app.chosen_price = document.getElementById("shoe-price").value;
-}
-
-function getResults() {
+// Function that will display all the available seats fro the user to choose from depending on the movie and date they choose
+function getSeats() {
 
     // Create AJAX Request
     var xmlhttp = new XMLHttpRequest();
 
-    app.show_search=false;
-    app.show_search_results = true;
-    app.item = document.getElementById("shoe-search").value+":";
+    // the div that allows users to choose a movie and time will disappear
+    app.show_filter = false;
+    // the div that displays the results of what the users chose will appear
+    app.show_seats = true;
+
+    // display the movie that is chosen by the user
+    let movie_options = document.getElementsByName('movie');
+    for(let movie_option of movie_options){
+        if(movie_option.checked){
+            app.movie = movie_option.value;
+        }
+    }
+
+    // display the title of the movie that is chosen by the user
+    app.movie_cover = app.movie+'.png';
 
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {

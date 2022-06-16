@@ -20,7 +20,7 @@ header .logo {
   float: left;
   margin-right: 7em;
   margin-left: 1em;
-  width: 400px;
+  width: 250px;
 }
 
 header ul {
@@ -64,15 +64,23 @@ h2{
   background-color: #d2e1f9;
 }
 
-/* to center the two divs: search and search results */
-.search, .search-results{
-  margin-left: 35em;
+/* to center the two divs: search and seat-options */
+.search, .seat-options{
+  margin-left: 25em;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-cover{
+  margin-left: 15em;
+  width: 250px;
+  height: 300px;
   align-items: center;
   justify-content: center;
 }
 
 #search-button, #back-button{
-  margin-left:10em;
+  margin-left:20em;
   background-color: #1c63d8;
   border-radius: 2em;
   color: white;
@@ -87,12 +95,5 @@ h3{
   background-color: #d2e1f9;
 }
 
-.size-options, .price-options, .brand-options, .color-options, .gender-options{
-  border-style: solid none none none;
-  width: 25em;
-}
 
-.type-options{
-  border-style: none none solid none;
-  width: 25em;
-}
+

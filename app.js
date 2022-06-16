@@ -18,7 +18,7 @@ var app = express();
 // creating the dbconnectionpool to integerate sql database into the webapp
 var dbConnectionPool = mysql.createPool({
   host: 'localhost',
-  database: 'task1_3'
+  database: 'cinema'
 });
 
 app.use(function(req, res, next) {

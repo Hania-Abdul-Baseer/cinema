@@ -29,100 +29,39 @@
       <div id="vue">
         <h2>Make your reservation</h2>
 
-        <div class = search v-if="show_search">
+        <div class = search v-if="show_filter">
           <br>
-          <div class=search-box>
-            <label for="search">Enter your search term:</label>
-            <input type="text" name="search" id="shoe-search"/>
-            <br>
-            <br>
-            <br>
-          </div>
 
-          <p> Filter your search below: </p>
-          <br>
-          <div class=size-options>
-            <label for="shoe-size">Size (between 4 and 11):</label>
-            <input type="number" id="shoe-size" name="shoe-size" min="4" max="11">
-            <br>
-            <br>
-          </div>
-
-          <div class=price-options>
-            <label for="shoe-price">Price:</label>
-            <input type="range" id="shoe-price" name="shoe-price" min="50" max="500" onmousemove="showPrice()">
-            AUS${{chosen_price}}
-            <br>
-            <br>
-          </div>
-
-          <form class=brand-options>
-            Brand:
-            <input type="radio" id="brand1" name="shoe-brand" value="lv">
-            <label for="brand1">LV</label>
-            <input type="radio" id="brand2" name="shoe-brand" value="h&m">
-            <label for="brand2">H&M</label>
-            <input type="radio" id="brand3" name="shoe-brand" value="ysl">
-            <label for="brand3">YSL</label>
-            <input type="radio" id="brand4" name="shoe-brand" value="other-brand">
-            <label for="brand4">Other</label>
-            <br>
-            <br>
-          </form>
-
-          <form class=color-options>
-            Color:
-            <input type="radio" id="color1" name="shoe-color" value="black">
-            <label for="color1">Black</label>
-            <input type="radio" id="color2" name="shoe-color" value="white">
-            <label for="brand2">White</label>
-            <input type="radio" id="color3" name="shoe-color" value="brown">
-            <label for="color3">Brown</label>
-            <input type="radio" id="color4" name="shoe-color" value="other-color">
-            <label for="color4">Other</label>
-            <br>
-            <br>
-          </form>
-
-          <form class=gender-options>
-            Shoes for:
-            <input type="radio" id="female-shoes" name="shoe-gender" value="female">
-            <label for="female-shoes">Female</label>
-            <input type="radio" id="male-shoes" name="shoe-gender" value="male">
-            <label for="male-shoes">Male</label>
-            <input type="radio" id="unisex-shoes" name="shoe-gender" value="unisex">
-            <label for="unisex-shoes">Unisex</label>
-            <br>
-            <br>
-          </form>
-
-          <form class=type-options>
-            Type:
-            <input type="radio" id="sneakers" name="shoe-type" value="sneakers">
-            <label for="sneakers">Sneakers</label>
-            <input type="radio" id="heels" name="shoe-type" value="heels">
-            <label for="heels">Heels</label>
-            <input type="radio" id="boots" name="shoe-type" value="boots">
-            <label for="boots">Boots</label>
-            <input type="radio" id="other-type" name="shoe-type" value="other-type">
-            <label for="other-type">Other</label>
+          <form class=movie-options>
+            Choose a movie:
+            <br><br>
+            <input type="radio" id="movie1" name="movie" value="WDC">
+            <label for="movie1">WDC</label>
+            <input type="radio" id="movie2" name="movie" value="Conjuring">
+            <label for="movie2">Conjuring</label>
+            <input type="radio" id="movie3" name="movie" value="Titanic">
+            <label for="movie3">Titanic</label>
+            <input type="radio" id="movie4" name="movie" value="Run">
+            <label for="movie4">Run</label>
             <br>
             <br>
           </form>
 
           <br>
-          <button id="search-button" onclick=getResults()>Search</button>
+          <button id="search-button" onclick=getSeats()>Select Seat</button>
         </div>
 
-        <div class="search-results" v-if="show_search_results">
-          <h4> Showing search results for {{item}}</h4>
+        <div class="seat-options" v-if="show_seats">
+          <h4> Showing available seats for the screening of {{movie}} on {{date}}</h4>
+
+          <img class="movie-cover" v-bind:src="'/images/' + movie_cover" alt="Movie Cover"/>
 
             <div id="results-list">
               <table id="shoes-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Price</th>
+                        <th>Room Number</th>
+                        <th>Seat Number</th>
                     </tr>
                 </thead>
                 <tbody id="shoe-data">
@@ -133,7 +72,7 @@
               </table>
             </div>
 
-          <button id="back-button" onclick="app.show_search=true; app.show_search_results=false;">Back to search</button>
+          <button id="back-button" onclick="app.show_filter=true; app.show_seats=false;">Back to movie selection</button>
         </div>
 
       </div>
