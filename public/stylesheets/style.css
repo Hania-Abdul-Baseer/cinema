@@ -95,5 +95,12 @@ h3{
   background-color: #d2e1f9;
 }
 
+td, th{
+  text-align: center;
+  padding: 2em;
+}
+
+
+
 
 
