@@ -37,7 +37,7 @@ header ul li {
   font-size: 18px;
 }
 
-header ul li:hover, #login:hover, #signup:hover, #search-button:hover {
+header ul li:hover, #login:hover, #signup:hover, #search-button:hover, #select-button:hover {
   background-color: lightblue;
 }
 
@@ -100,7 +100,10 @@ td, th{
   padding: 2em;
 }
 
-
+#select-button{
+  padding:2em;
+  background-color: #1c63d8;
+}
 
 
 

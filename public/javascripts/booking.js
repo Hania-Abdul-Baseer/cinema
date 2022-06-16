@@ -55,7 +55,7 @@ function getSeats() {
 
                 var select_button = document.createElement('button');
                 select_button.setAttribute("id", "select-button");
-                select_button.innerHtml = 'Select';
+                select_button.innerHTML = 'Select';
 
                 var room_num = document.createElement('td');
                 var temp = document.createTextNode(options_li[i].room_number);
