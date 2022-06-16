@@ -124,11 +124,9 @@ SELECT movies.movie_name, movies.descr, movies.movie_cast, movies.genre, movies.
     WHERE bookings.booking_date BETWEEN '2022-06-20 00:00:00' AND '2022-06-20 23:59:59';
 
 /*
-
 SELECT rooms.room_number, seats.seat_number
     FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
     INNER JOIN screenings ON screenings.room = rooms.room_id
     INNER JOIN movies ON movies.movie_id = screenings.movie
     WHERE movies.movie_name = 'WDC' AND screenings.start_time = '2022-06-25 02:30:00';
-
 */

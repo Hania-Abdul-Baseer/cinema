@@ -7,6 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 // POST request that returns the seat number and room number for the user to choose from
+// This can be tested by selecting the movie as 'WDC' and the datetime as '2022-06-25 02:30:00' which is 6th of June 2022 and 2:30 am
+// This should return 3 seats with numbers: 30, 31, 32 all from room 20
 router.post('/seats', function(req, res, next) {
   // this is a function that is going to run asynchronously and it will execute the inner function once it establishes a connection with the database
   // this way the database is not always connected and only when its needed for retrieval of data

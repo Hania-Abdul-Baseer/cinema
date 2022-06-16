@@ -46,7 +46,12 @@ function getSeats() {
 
             var options_li = JSON.parse(this.responseText);
             for(let i = 0; i < options_li.length; i++){
+
                 var row = document.createElement('tr');
+
+                //var option = document.createElement('td');
+                //var temp = document.create;
+                //option.appendChild(temp);
 
                 var room_num = document.createElement('td');
                 var temp = document.createTextNode(options_li[i].room_number);
@@ -56,10 +61,12 @@ function getSeats() {
                 temp = document.createTextNode(options_li[i].seat_number);
                 seat_num.appendChild(temp);
 
+                //row.appendChild(option);
                 row.appendChild(room_num);
                 row.appendChild(seat_num);
 
                 document.getElementById("seat-data").appendChild(row);
+
             }
         }
     };
