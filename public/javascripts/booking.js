@@ -38,28 +38,28 @@ function getSeats() {
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var shoes_li = JSON.parse(this.responseText);
-            for(let i = 0; i < shoes_li.length; i++){
+            var options_li = JSON.parse(this.responseText);
+            for(let i = 0; i < options_li.length; i++){
                 var row = document.createElement('tr');
 
-                var name = document.createElement('td');
-                var temp = document.createTextNode(shoes_li[i].shoe_name);
-                name.appendChild(temp);
+                var room_num = document.createElement('td');
+                var temp = document.createTextNode(options_li[i].room_number);
+                room_num.appendChild(temp);
 
-                var price = document.createElement('td');
-                temp = document.createTextNode(shoes_li[i].price);
-                price.appendChild(temp);
+                var seat_num = document.createElement('td');
+                temp = document.createTextNode(options_li[i].seat_number);
+                seat_num.appendChild(temp);
 
-                row.appendChild(name);
-                row.appendChild(price);
+                row.appendChild(room_num);
+                row.appendChild(seat_num);
 
-                document.getElementById("shoe-data").appendChild(row);
+                document.getElementById("seat-data").appendChild(row);
             }
         }
     };
 
     // Open connection to server
-    xmlhttp.open("GET", "/shoes", true);
+    xmlhttp.open("GET", "/seats", true);
 
     // Send request
     xmlhttp.send();
@@ -104,6 +104,7 @@ function getResults(){
 }
 */
 
+/*
 // Function the
 function showResults(){
     let items = document.getElementById("results-list");
@@ -114,6 +115,7 @@ function showResults(){
     items_list.appendChild(item);
     items.appendChild(items_list);
 }
+*/
 
 /*
 var vueinst = new Vue({

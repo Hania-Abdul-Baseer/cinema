@@ -85,19 +85,29 @@ INSERT INTO users VALUES (1,'alice','Alice','Woods','$argon2i$v=19$m=16,t=2,p=1$
 INSERT INTO users VALUES (2,'bob','Bob','Duncan','$argon2i$v=19$m=16,t=2,p=1$cUprcmRXbDRWNmN6TkNWcQ$zlP8PdnyumlH9h074C6D6w','bob@example.example');
 
 INSERT INTO movies VALUES (1,'WDC','This is the description of the movie','Hania AB, Alice Woods, Bob Duncan','horror, thriller, suspense','32 hours');
+INSERT INTO movies VALUES (2,'Run','This is the description of the movie','Bob Hi, Wayne RK, White Hood','action, comedy, thriller','3 hours');
+INSERT INTO movies VALUES (3,'Titanic','This is the description of the movie','Brown JK, Jennie R, Lisa M','romance, melodrama','6 hours');
+INSERT INTO movies VALUES (4,'Conjuring','This is the description of the movie','Rose J, Alen Right','horror, drama, action','2 hours');
 
 INSERT INTO reviews VALUES (1,'review title','content of the review','2022-06-16 06:35:18',1,1);
 
 INSERT INTO rooms VALUES (1,20,100,'main hub in left wing');
+INSERT INTO rooms VALUES (2,20,100,'main hub in right wing');
 
 INSERT INTO seats VALUES (1, 30, 1);
 INSERT INTO seats VALUES (2, 31, 1);
 INSERT INTO seats VALUES (3, 32, 1);
+INSERT INTO seats VALUES (4, 40, 2);
+INSERT INTO seats VALUES (5, 41, 2);
+INSERT INTO seats VALUES (6, 42, 2);
 
 INSERT INTO bookings VALUES (1, '2022-06-20 06:35:18', 'confirmed', 1);
 INSERT INTO bookings VALUES (2, '2022-06-21 06:35:18', 'confirmed', 2);
 
-INSERT INTO screenings VALUES (1, '2022-06-25 02:35:00', 1, 1);
+INSERT INTO screenings VALUES (1, '2022-06-25 02:30:00', 1, 1);
+INSERT INTO screenings VALUES (2, '2022-07-25 02:20:00', 2, 1);
+INSERT INTO screenings VALUES (3, '2022-08-25 02:00:00', 3, 2);
+INSERT INTO screenings VALUES (4, '2022-09-25 01:30:00', 4, 2);
 
 INSERT INTO tickets VALUES (1, 1, 1, 1);
 INSERT INTO tickets VALUES (2, 1, 1, 2);
@@ -112,3 +122,13 @@ SELECT movies.movie_name, movies.descr, movies.movie_cast, movies.genre, movies.
     INNER JOIN bookings ON bookings.booking_id = tickets.booking
     INNER JOIN seats ON seats.seat_id = tickets.seat
     WHERE bookings.booking_date BETWEEN '2022-06-20 00:00:00' AND '2022-06-20 23:59:59';
+
+/*
+
+SELECT rooms.room_number, seats.seat_number
+    FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
+    INNER JOIN screenings ON screenings.room = rooms.room_id
+    INNER JOIN movies ON movies.movie_id = screenings.movie
+    WHERE movies.movie_name = 'WDC' AND screenings.start_time = '2022-06-25 02:30:00';
+
+*/

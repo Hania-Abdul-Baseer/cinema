@@ -6,8 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// GET request that returns the name and price of all the shoes that match the user's search and filter
-router.get('/shoes', function(req, res, next) {
+// GET request that returns the seat number and room number for the user to choose from
+router.get('/seats', function(req, res, next) {
   // this is a function that is going to run asynchronously and it will execute the inner function once it establishes a connection with the database
   // this way the database is not always connected and only when its needed for retrieval of data
   req.pool.getConnection(function(error, connection){
