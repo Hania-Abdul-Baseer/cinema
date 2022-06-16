@@ -123,7 +123,17 @@ SELECT movies.movie_name, movies.descr, movies.movie_cast, movies.genre, movies.
     INNER JOIN seats ON seats.seat_id = tickets.seat
     WHERE bookings.booking_date BETWEEN '2022-06-20 00:00:00' AND '2022-06-20 23:59:59';
 
-/*
+
+
+/* Prepared statement used to display all seat and room number for the movie and time chosen by user
+ `SELECT rooms.room_number, seats.seat_number
+                  FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
+                  INNER JOIN screenings ON screenings.room = rooms.room_id
+                  INNER JOIN movies ON movies.movie_id = screenings.movie
+                  WHERE movies.movie_name = ? AND screenings.start_time = ?`
+*/
+
+/* Query used to test the output from the top prepared statement is correct
 SELECT rooms.room_number, seats.seat_number
     FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
     INNER JOIN screenings ON screenings.room = rooms.room_id
