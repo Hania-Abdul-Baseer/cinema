@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-// GET request that returns the seat number and room number for the user to choose from
+// GET home page.
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+// POST request that returns the seat number and room number for the user to choose from
 router.post('/seats', function(req, res, next) {
   // this is a function that is going to run asynchronously and it will execute the inner function once it establishes a connection with the database
   // this way the database is not always connected and only when its needed for retrieval of data
@@ -17,7 +22,7 @@ router.post('/seats', function(req, res, next) {
                   INNER JOIN screenings ON screenings.room = rooms.room_id
                   INNER JOIN movies ON movies.movie_id = screenings.movie
                   WHERE movies.movie_name = ?`;
-    console.log("line 20" +req.body.movie_name);
+
     connection.query(query,[req.body.movie_name], function(error, rows, fields){
       connection.release(); // release connection
       if(error){
@@ -26,7 +31,6 @@ router.post('/seats', function(req, res, next) {
         return;
       }
       res.json(rows); // send response
-      console.log("line 29" + rows);
     });
   });
 });
