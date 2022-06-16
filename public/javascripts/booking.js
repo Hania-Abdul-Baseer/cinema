@@ -4,7 +4,7 @@ var app = new Vue({
         show_filter: true,
         show_seats: false,
         movie: '',
-        date: '2022-06-20 06:35:18',
+        movie_date: '2022-06-20 06:35:18',
         movie_cover: 'wdc.png',
     }
 });
@@ -30,6 +30,9 @@ function getSeats() {
 
     // display the title of the movie that is chosen by the user
     app.movie_cover = app.movie+'.png';
+
+    // display the date and time chosen by the user
+    app.movie_date = document.getElementById("start");
 
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
