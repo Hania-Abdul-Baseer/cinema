@@ -3,22 +3,22 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Hania's Shoes</title>
+    <title>Hania's Cinema</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <!-- adding vue to the webapp -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="javascripts/page.js" defer></script>
+    <script src="javascripts/booking.js" defer></script>
   </head>
 
   <body>
     <header class="header">
-      <img class="logo" src="images/logo.png" alt="WDC Overflow" />
+      <img class="logo" src="images/logo.png" alt="Hania's Cinema" />
         <ul>
-          <li>Store Locations</i>
-          <li>Sale</li>
-          <li>Best Sellers</li>
-          <li>Shipping Details</li>
-          <li>Payment Options</li>
+          <li>Cinemas</i>
+          <li>Merch Store</li>
+          <li>Now Showing</li>
+          <li>Events</li>
+          <li>FAQ</li>
           <li>Search</li>
         </ul>
         <button id="login">Login</button>
@@ -27,7 +27,7 @@
 
     <main id="main">
       <div id="vue">
-        <h2>Search Shop</h2>
+        <h2>Make your reservation</h2>
 
         <div class = search v-if="show_search">
           <br>
