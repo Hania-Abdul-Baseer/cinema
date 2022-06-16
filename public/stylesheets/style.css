@@ -64,9 +64,14 @@ h2{
   background-color: #d2e1f9;
 }
 
-/* to center the two divs: search and seat-options */
-.search, .seat-options{
+.seat-options{
   margin-left: 25em;
+  align-items: center;
+  justify-content: center;
+}
+
+.search{
+  margin-left: 35em;
   align-items: center;
   justify-content: center;
 }
@@ -79,12 +84,24 @@ h2{
   justify-content: center;
 }
 
-#search-button, #back-button{
-  margin-left:20em;
+#back-button{
+  margin-left:18em;
   background-color: #1c63d8;
   border-radius: 2em;
   color: white;
   font-size: 16px;
+}
+
+#search-button{
+  margin-left:10em;
+  background-color: #1c63d8;
+  border-radius: 2em;
+  color: white;
+  font-size: 16px;
+}
+
+#back-button:hover{
+  background-color: lightblue;
 }
 
 h3{
@@ -97,12 +114,16 @@ h3{
 
 td, th{
   text-align: center;
-  padding: 2em;
+  padding: 1em;
 }
 
 #select-button{
-  padding:2em;
+  color: white;
   background-color: #1c63d8;
+}
+
+#results-list{
+  margin-left:10em;
 }
 
 

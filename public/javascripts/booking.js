@@ -49,23 +49,20 @@ function getSeats() {
 
                 var row = document.createElement('tr');
 
-                var spacer = document.createElement('td');
-                var temp = document.createTextNode('     ');
-                spacer.appendChild(temp);
-
-                var select_button = document.createElement('button');
-                select_button.setAttribute("id", "select-button");
-                select_button.innerHTML = 'Select';
+                var select_button = document.createElement('td');
+                var temp = document.createElement('button');
+                temp.setAttribute("id", "select-button");
+                temp.innerHTML = 'Select';
+                select_button.appendChild(temp);
 
                 var room_num = document.createElement('td');
-                var temp = document.createTextNode(options_li[i].room_number);
+                temp = document.createTextNode(options_li[i].room_number);
                 room_num.appendChild(temp);
 
                 var seat_num = document.createElement('td');
                 temp = document.createTextNode(options_li[i].seat_number);
                 seat_num.appendChild(temp);
 
-                row.appendChild(spacer);
                 row.appendChild(select_button);
                 row.appendChild(room_num);
                 row.appendChild(seat_num);
