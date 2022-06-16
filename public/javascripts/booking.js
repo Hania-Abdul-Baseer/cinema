@@ -20,7 +20,7 @@ function getSeats() {
     // the div that displays the results of what the users chose will appear
     app.show_seats = true;
 
-    // display the movie that is chosen by the user
+    // store the movie that is chosen by the user
     let movie_options = document.getElementsByName('movie');
     for(let movie_option of movie_options){
         if(movie_option.checked){
@@ -28,16 +28,16 @@ function getSeats() {
         }
     }
 
-    // display the title of the movie that is chosen by the user
+    // store the title of the movie that is chosen by the user
     app.movie_cover = app.movie+'.png';
 
-    // display the date and time chosen by the user
+    // store the date and time chosen by the user
     //app.movie_date = new Date(document.getElementById("start").value);
     app.movie_date = document.getElementById("start").value;
 
     let details = {
         movie_name: app.movie,
-        movie_date: ''
+        movie_time: app.movie_date
     };
 
     // Define function to run on response

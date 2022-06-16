@@ -21,9 +21,9 @@ router.post('/seats', function(req, res, next) {
                   FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
                   INNER JOIN screenings ON screenings.room = rooms.room_id
                   INNER JOIN movies ON movies.movie_id = screenings.movie
-                  WHERE movies.movie_name = ?`;
+                  WHERE movies.movie_name = ? AND screenings.start_time = ?`;
 
-    connection.query(query,[req.body.movie_name], function(error, rows, fields){
+    connection.query(query,[req.body.movie_name, req.body.movie_time], function(error, rows, fields){
       connection.release(); // release connection
       if(error){
         console.log("error line 25 - index.js");
