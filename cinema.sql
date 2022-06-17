@@ -124,6 +124,10 @@ SELECT movies.movie_name, movies.descr, movies.movie_cast, movies.genre, movies.
     WHERE bookings.booking_date BETWEEN '2022-06-20 00:00:00' AND '2022-06-20 23:59:59';
 
 
+/* Prepared used to display all movies and their starting times
+`SELECT movies.movie_name, screenings.start_time
+    FROM movies INNER JOIN screenings ON screenings.movie = movies.movie_id`
+*/
 
 /* Prepared statement used to display all seat and room number for the movie and time chosen by user
  `SELECT rooms.room_number, seats.seat_number
