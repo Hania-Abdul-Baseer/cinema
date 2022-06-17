@@ -63,6 +63,9 @@ function getSeats() {
         if(movie_option.checked){
             app.movie = movie_option.value;
         }
+        else{
+            app.movie = 'Titanic';
+        }
     }
 
     // store the title of the movie that is chosen by the user
