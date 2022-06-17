@@ -3,11 +3,9 @@ var app = new Vue({
     data: {
         show_filter: true,
         show_seats: false,
-        //movie: 'Titanic', // default movie name, if user doesnt choose a name
-        //movie_date: '2022-08-25 02:00:00', // default movie datetime if user doesnt choose one
-        movie: '',
-        movie_date: '',
-        movie_cover: 'Titanic.png', // default movie title for default movie if user doesnt choose one
+        movie: 'Titanic', // default movie name, if user doesnt choose a name
+        movie_date: '2022-08-25 02:00:00', // default movie datetime if user doesnt choose one
+        movie_cover: 'Titanic.png' // default movie title for default movie if user doesnt choose one
     }
 });
 
@@ -33,15 +31,12 @@ function getSeats() {
     // store the title of the movie that is chosen by the user
     app.movie_cover = app.movie+'.png';
 
-    /*
     // datetime of movie is selected if user choses something otherwise it will use default datetime
     if(!(document.getElementById("start").value.length===0)){
         // store the date and time chosen by the user
         //app.movie_date = new Date(document.getElementById("start").value);
         app.movie_date = document.getElementById("start").value;
     }
-    */
-    app.movie_date = document.getElementById("start").value;
 
     let details = {
         movie_name: app.movie,
