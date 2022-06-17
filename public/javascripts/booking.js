@@ -64,6 +64,7 @@ function getSeats() {
             app.movie = movie_option.value;
         }
         else{
+            // deafult movie name is chosen if nothing is selected
             app.movie = 'Titanic';
         }
     }
