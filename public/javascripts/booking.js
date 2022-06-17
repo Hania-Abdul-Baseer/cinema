@@ -9,6 +9,43 @@ var app = new Vue({
     }
 });
 
+// function that will send an ajax request to GET all the movies from the database and displays them
+function showMovies() {
+    // Create AJAX Request
+    var xmlhttp = new XMLHttpRequest();
+
+    // Define function to run on response
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+            var options_li = JSON.parse(this.responseText);
+            for(let i = 0; i < movies_li.length; i++){
+
+                var row = document.createElement('tr');
+
+                var movie_title = document.createElement('td');
+                temp = document.createTextNode(movies_li[i].movie_name);
+                movie_title.appendChild(temp);
+
+                var movie_start = document.createElement('td');
+                temp = document.createTextNode(movies_li[i].start_time);
+                movie_start.appendChild(temp);
+
+                row.appendChild(movie_title);
+                row.appendChild(movie_start);
+
+                document.getElementById("movie-data").appendChild(row);
+
+            }
+        }
+    };
+    // Open connection to server
+    xmlhttp.open("GET", "/movies", true);
+
+    // Send request
+    xmlhttp.send();
+}
+
 // Function that will display all the available seats fro the user to choose from depending on the movie and date they choose
 function getSeats() {
 

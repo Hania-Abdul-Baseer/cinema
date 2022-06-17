@@ -126,5 +126,11 @@ td, th{
   margin-left:10em;
 }
 
+.movies-list{
+  margin-left: 35em;
+  align-items: center;
+  justify-content: center;
+}
+
 
 

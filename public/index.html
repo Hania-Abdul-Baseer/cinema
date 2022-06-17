@@ -10,7 +10,7 @@
     <script src="javascripts/booking.js" defer></script>
   </head>
 
-  <body>
+  <body onload=showMovies()>
     <header class="header">
       <img class="logo" src="images/logo.png" alt="Hania's Cinema" />
         <ul>
@@ -74,12 +74,28 @@
                     </tr>
                 </thead>
                 <tbody id="seat-data">
-                
+
                 </tbody>
               </table>
             </div>
 
           <button id="back-button" onclick="app.show_filter=true; app.show_seats=false;">Back to movie selection</button>
+        </div>
+
+        <h2>Now Showing </h2>
+
+        <div class = "movies-list">
+          <table id="movies-table">
+                <thead>
+                    <tr>
+                        <th>Movie</th>
+                        <th>Starting time</th>
+                    </tr>
+                </thead>
+                <tbody id="movie-data">
+
+                </tbody>
+              </table>
         </div>
 
       </div>
