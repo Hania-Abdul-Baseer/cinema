@@ -19,24 +19,6 @@ router.post('/seats', function(req, res, next) {
       return;
     }
 
-    // If the datetime is not selected but movie is selected, then all seats and room are displayed
-    if(req.body.movie_time.length===0){
-      let query = `SELECT rooms.room_number, seats.seat_number
-                  FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
-                  INNER JOIN screenings ON screenings.room = rooms.room_id
-                  INNER JOIN movies ON movies.movie_id = screenings.movie
-                  WHERE movies.movie_name = ?`;
-      connection.query(query,[req.body.movie_name], function(error, rows, fields){
-        connection.release(); // release connection
-        if(error){
-          console.log("error line 25 - index.js");
-          res.sendStatus(500);
-          return;
-        }
-        res.json(rows); // send response
-      });
-    }
-
     let query = `SELECT rooms.room_number, seats.seat_number
                   FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
                   INNER JOIN screenings ON screenings.room = rooms.room_id
