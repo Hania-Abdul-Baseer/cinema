@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 // GET request to get the list of all current movies and their times
-router.post('/movies', function(req, res, next) {
+router.get('/movies', function(req, res, next) {
   // this is a function that is going to run asynchronously and it will execute the inner function once it establishes a connection with the database
   // this way the database is not always connected and only when its needed for retrieval of data
   req.pool.getConnection(function(error, connection){
@@ -17,16 +17,13 @@ router.post('/movies', function(req, res, next) {
       return;
     }
 
-    let query = `SELECT rooms.room_number, seats.seat_number
-                  FROM rooms INNER JOIN seats ON seats.room = rooms.room_id
-                  INNER JOIN screenings ON screenings.room = rooms.room_id
-                  INNER JOIN movies ON movies.movie_id = screenings.movie
-                  WHERE movies.movie_name = ? AND screenings.start_time = ?`;
+    let query = `SELECT movies.movie_name, screenings.start_time
+    FROM movies INNER JOIN screenings ON screenings.movie = movies.movie_id`;
 
-    connection.query(query,[req.body.movie_name, req.body.movie_time], function(error, rows, fields){
+    connection.query(query, function(error, rows, fields){
       connection.release(); // release connection
       if(error){
-        console.log("error line 25 - index.js");
+        console.log("error line 26 - index.js");
         res.sendStatus(500);
         return;
       }
