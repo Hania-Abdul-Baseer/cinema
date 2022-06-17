@@ -18,13 +18,13 @@ function showMovies() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
 
-            var options_li = JSON.parse(this.responseText);
+            var movies_li = JSON.parse(this.responseText);
             for(let i = 0; i < movies_li.length; i++){
 
                 var row = document.createElement('tr');
 
                 var movie_title = document.createElement('td');
-                temp = document.createTextNode(movies_li[i].movie_name);
+                var temp = document.createTextNode(movies_li[i].movie_name);
                 movie_title.appendChild(temp);
 
                 var movie_start = document.createElement('td');
